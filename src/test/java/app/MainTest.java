@@ -45,16 +45,13 @@ public class MainTest {
 
 @Test
 public void checkArrayElementsStep () {
-        int expected = 1;
-        int actual = 0;
-        int [] array = Main.getArray(20);
-        for( int i = 1; i < array.length; i++ ) {
-            int differ = array[i] - array[i-1];
-            if ( differ > actual) {
-                actual = differ;
-            }
+        int [] expected = { 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+        int [] actual = new int[9];
+        int [] array = Main.getArray(10);
+        for( int i = 0; i < array.length - 1; i++ ) {
+            actual[ i ] = array[i+1] - array[i];
         }
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected, actual);
 }
 
     @Test
